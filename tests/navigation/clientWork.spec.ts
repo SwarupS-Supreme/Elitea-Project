@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
-import { ClientWorkPage } from '../../pages/ClientWorkPage';
-import { HomePage } from '../../pages/HomePage';
+import { ClientWorkPage } from '../../pages/ClientWorkPage.js';
+import { HomePage } from '../../pages/HomePage.js';
 
 test('navigate from Services menu to Client Work page', async ({ page }) => {
   const homePage = new HomePage(page);
