@@ -1,5 +1,5 @@
-import { Locator, Page } from '@playwright/test';
-import { PageTexts } from '../constants/urls';
+import { type Locator, type Page } from '@playwright/test';
+import { PageTexts } from '../constants/urls.js';
 
 export class ClientWorkPage {
   readonly heading: Locator;
