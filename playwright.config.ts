@@ -1,17 +1,14 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  fullyParallel: true,
-  retries: 0,
+  timeout: 30_000,
+  expect: {
+    timeout: 10_000,
+  },
   use: {
     baseURL: 'https://www.epam.com',
     trace: 'on-first-retry',
+    viewport: { width: 1280, height: 720 },
   },
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
-  ],
 });
