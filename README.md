@@ -18,6 +18,5 @@ This repository will be used to capture SDET-ready artifacts and validation note
 ## Run
 ```bash
 npm install
-npx playwright install
-npm run test:e2e
+npm run test
 ```
