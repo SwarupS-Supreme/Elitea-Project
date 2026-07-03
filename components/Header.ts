@@ -1,17 +1,14 @@
 import { type Locator, type Page } from '@playwright/test';
-import { NavigationTestData } from '../fixtures/testData.js';
+import { PageTexts } from '../constants/urls.js';
 
 export class Header {
-  readonly servicesMenu: Locator;
-  readonly exploreOurClientWorkLink: Locator;
+  private readonly servicesMenu: Locator;
+  private readonly exploreOurClientWorkLink: Locator;
 
   constructor(private readonly page: Page) {
-    this.servicesMenu = this.page.getByRole('link', {
-      name: NavigationTestData.servicesMenu,
-    });
-
+    this.servicesMenu = this.page.getByRole('link', { name: PageTexts.servicesMenu });
     this.exploreOurClientWorkLink = this.page.getByRole('link', {
-      name: NavigationTestData.exploreOurClientWork,
+      name: PageTexts.exploreOurClientWork,
     });
   }
 
@@ -19,7 +16,7 @@ export class Header {
     await this.servicesMenu.hover();
   }
 
-  async selectExploreOurClientWork(): Promise<void> {
+  async navigateToClientWork(): Promise<void> {
     await this.exploreOurClientWorkLink.click();
   }
 }
