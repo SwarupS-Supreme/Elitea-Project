@@ -3,13 +3,21 @@ import { AppUrls } from '../constants/urls.js';
 import { Header } from '../components/Header.js';
 
 export class HomePage {
-  readonly header: Header;
+  private readonly header: Header;
 
   constructor(private readonly page: Page) {
-    this.header = new Header(this.page);
+    this.header = new Header(page);
   }
 
-  async goto(): Promise<void> {
-    await this.page.goto(AppUrls.home);
+  async open(): Promise<void> {
+    await this.page.goto(AppUrls.epamHome, { waitUntil: 'domcontentloaded' });
+  }
+
+  async openServicesMenu(): Promise<void> {
+    await this.header.openServicesMenu();
+  }
+
+  async navigateToClientWork(): Promise<void> {
+    await this.header.navigateToClientWork();
   }
 }
