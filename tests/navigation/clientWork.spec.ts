@@ -1,39 +1,32 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
 import { ClientWorkPage } from '../../pages/ClientWorkPage.js';
 import { HomePage } from '../../pages/HomePage.js';
-import { PartnersPage } from '../../pages/PartnersPage.js';
 
 test.describe('EPAM Services menu navigation', () => {
-  test('TC_1: Client Work page heading is visible', async ({ page }) => {
+  test('TC_1 - Services → Client Work → verify Client Work', async ({ page }) => {
     const homePage = new HomePage(page);
     const clientWorkPage = new ClientWorkPage(page);
 
     await homePage.open();
-    await homePage.openServicesMenu();
     await homePage.navigateToClientWork();
-
-    await expect(clientWorkPage.heading).toBeVisible();
+    await clientWorkPage.expectHeadingVisible();
   });
 
-  test('TC_2: Client Work page contact us text is visible', async ({ page }) => {
+  test('TC_2 - Services → Client Work → verify CONTACT US', async ({ page }) => {
     const homePage = new HomePage(page);
     const clientWorkPage = new ClientWorkPage(page);
 
     await homePage.open();
-    await homePage.openServicesMenu();
     await homePage.navigateToClientWork();
-
-    await expect(clientWorkPage.contactUsText).toBeVisible();
+    await clientWorkPage.expectContactUsVisible();
   });
 
-  test('TC_3: Partners page heading is visible', async ({ page }) => {
+  test('TC_3 - Services → Partners → verify Partners', async ({ page }) => {
     const homePage = new HomePage(page);
-    const partnersPage = new PartnersPage(page);
+    const clientWorkPage = new ClientWorkPage(page);
 
     await homePage.open();
-    await homePage.openServicesMenu();
     await homePage.navigateToPartners();
-
-    await expect(partnersPage.heading).toBeVisible();
+    await clientWorkPage.expectPartnersVisible();
   });
 });
