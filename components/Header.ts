@@ -3,12 +3,16 @@ import { PageTexts } from '../constants/urls.js';
 
 export class Header {
   private readonly servicesMenu: Locator;
-  private readonly exploreOurClientWorkLink: Locator;
+  private readonly clientWorkLink: Locator;
+  private readonly partnersLink: Locator;
 
   constructor(private readonly page: Page) {
     this.servicesMenu = this.page.getByRole('link', { name: PageTexts.servicesMenu });
-    this.exploreOurClientWorkLink = this.page.getByRole('link', {
-      name: PageTexts.exploreOurClientWork,
+    this.clientWorkLink = this.page.getByRole('link', {
+      name: PageTexts.clientWorkLink,
+    });
+    this.partnersLink = this.page.getByRole('link', {
+      name: PageTexts.partnersLink,
     });
   }
 
@@ -17,6 +21,10 @@ export class Header {
   }
 
   async navigateToClientWork(): Promise<void> {
-    await this.exploreOurClientWorkLink.click();
+    await this.clientWorkLink.click();
+  }
+
+  async navigateToPartners(): Promise<void> {
+    await this.partnersLink.click();
   }
 }
