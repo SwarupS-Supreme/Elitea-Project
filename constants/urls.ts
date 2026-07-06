@@ -4,6 +4,9 @@ export const AppUrls = {
 
 export const PageTexts = {
   servicesMenu: 'Services',
-  exploreOurClientWork: 'Explore Our Client Work',
+  clientWorkLink: 'Explore Our Client Work',
+  partnersLink: 'Partners',
   clientWorkHeading: 'Client Work',
+  contactUsText: 'CONTACT US',
+  partnersHeading: 'Partners',
 } as const;
