@@ -13,7 +13,10 @@ This repository will be used to capture SDET-ready artifacts and validation note
 - Navigate to https://www.epam.com/
 - Open the **Services** menu from the header
 - Click **Explore Our Client Work**
-- Verify **Client Work** is visible on the destination page
+- Verify **Client Work** heading is visible on the destination page
+- Verify **CONTACT US** text is visible on the Client Work page
+- Click **Partners** from the Services menu
+- Verify **Partners** heading is visible on the destination page
 
 ## Run
 ```bash
