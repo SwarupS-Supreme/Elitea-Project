@@ -1,30 +1,17 @@
-import { type Locator, type Page } from '@playwright/test';
-import { PageTexts } from '../constants/urls.js';
+import type { Page } from '@playwright/test';
 
 export class Header {
-  private readonly servicesMenu: Locator;
-  private readonly clientWorkLink: Locator;
-  private readonly partnersLink: Locator;
-
-  constructor(private readonly page: Page) {
-    this.servicesMenu = this.page.getByRole('link', { name: PageTexts.servicesMenu });
-    this.clientWorkLink = this.page.getByRole('link', {
-      name: PageTexts.clientWorkLink,
-    });
-    this.partnersLink = this.page.getByRole('link', {
-      name: PageTexts.partnersLink,
-    });
-  }
+  constructor(private readonly page: Page) {}
 
   async openServicesMenu(): Promise<void> {
-    await this.servicesMenu.hover();
+    await this.page.getByRole('link', { name: 'Services' }).hover();
   }
 
-  async navigateToClientWork(): Promise<void> {
-    await this.clientWorkLink.click();
+  async clickClientWork(): Promise<void> {
+    await this.page.getByRole('link', { name: 'Client Work' }).click();
   }
 
-  async navigateToPartners(): Promise<void> {
-    await this.partnersLink.click();
+  async clickPartners(): Promise<void> {
+    await this.page.getByRole('link', { name: 'Partners' }).click();
   }
 }
