@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { ClientWorkPage } from '../../pages/ClientWorkPage.js';
 import { HomePage } from '../../pages/HomePage.js';
+import { PartnersPage } from '../../pages/PartnersPage.js';
 
 test.describe('EPAM Services menu navigation', () => {
   test('TC_1: Client Work page heading is visible', async ({ page }) => {
@@ -27,7 +28,7 @@ test.describe('EPAM Services menu navigation', () => {
 
   test('TC_3: Partners page heading is visible', async ({ page }) => {
     const homePage = new HomePage(page);
-    const partnersPage = new ClientWorkPage(page);
+    const partnersPage = new PartnersPage(page);
 
     await homePage.open();
     await homePage.openServicesMenu();
