@@ -1,5 +1,9 @@
 export const TEST_DATA = {
-  CLIENT_WORK: 'Client Work',
-  CONTACT_US: 'CONTACT US',
-  PARTNERS: 'Partners',
+  header: {
+    servicesMenuName: 'Services',
+    clientWorkLinkName: 'Explore Our Client Work',
+  },
+  clientWorkPage: {
+    headingName: 'Client Work',
+  },
 } as const;
