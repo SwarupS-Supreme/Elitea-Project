@@ -1,17 +1,26 @@
-import type { Page } from '@playwright/test';
+import { type Locator, type Page } from '@playwright/test';
+import { TEST_DATA } from '../fixtures/testData.js';
 
 export class Header {
-  constructor(private readonly page: Page) {}
+  private readonly page: Page;
+  readonly servicesMenu: Locator;
+  readonly clientWorkLink: Locator;
+
+  constructor(page: Page) {
+    this.page = page;
+    this.servicesMenu = this.page.getByRole('button', {
+      name: TEST_DATA.header.servicesMenuName,
+    });
+    this.clientWorkLink = this.page.getByRole('link', {
+      name: TEST_DATA.header.clientWorkLinkName,
+    });
+  }
 
   async openServicesMenu(): Promise<void> {
-    await this.page.getByRole('link', { name: 'Services' }).hover();
+    await this.servicesMenu.click();
   }
 
-  async clickClientWork(): Promise<void> {
-    await this.page.getByRole('link', { name: 'Client Work' }).click();
-  }
-
-  async clickPartners(): Promise<void> {
-    await this.page.getByRole('link', { name: 'Partners' }).click();
+  async navigateToClientWork(): Promise<void> {
+    await this.clientWorkLink.click();
   }
 }
