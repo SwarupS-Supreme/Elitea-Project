@@ -6,7 +6,7 @@ export class EpamHomePage {
 
   constructor(page: Page) {
     this.page = page;
-    this.servicesMenu = page.getByRole('button', { name: 'Services' }).or(page.getByRole('link', { name: 'Services' }));
+    this.servicesMenu = page.getByRole('button', { name: 'Services' });
   }
 
   async open() {
