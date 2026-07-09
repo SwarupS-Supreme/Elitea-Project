@@ -1,0 +1,15 @@
+{
+  "name": "elitea-project",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright automation for EPAM client work navigation",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "typescript": "^5.6.3"
+  }
+}
