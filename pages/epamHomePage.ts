@@ -16,7 +16,6 @@ export class EpamHomePage {
 
   async openServicesMenu() {
     await this.servicesMenu.hover();
-    await this.servicesMenu.click();
   }
 
   async openClientWork() {
